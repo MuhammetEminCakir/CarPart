@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.266" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/drawable/layout.xml" value="0.271" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/activity_main.xml" value="0.14564336372847012" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/activity_main2.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/activity_splash_screen.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_abs_sensor.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_account.xml" value="0.22" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_air_filter.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_battery.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_bonnet.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_brake_disc.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_brake_lining.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_car_part_add.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_eccentric_chain.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_eccentric_shaft.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_engine.xml" value="0.33" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_fuse_box.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_gearbox.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_headlight.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_home_page.xml" value="0.33" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_injector.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_login.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_mirror.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_order.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_order2.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_order_history.xml" value="0.346875" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_pollen_filter.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_recycler.xml" value="0.3390625" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_recycler2.xml" value="0.2609375" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_shopping_cart_recycler.xml" value="0.33" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_sign_up.xml" value="0.31197916666666664" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_signal.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_spark_plug.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_steering_wheel.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/fragment_window.xml" value="0.22760416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/home_page.xml" value="0.33" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/navigation_header.xml" value="0.22" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/recycler.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/recycler_car_part.xml" value="0.29635416666666664" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/recycler_fuse_box.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/recycler_headlight.xml" value="0.25" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/recycler_order.xml" value="0.33" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/recycler_order_2.xml" value="0.2838541666666667" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/recycler_order_history.xml" value="0.2647527910685805" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/recycler_shopping_cart.xml" value="0.33" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/layout/splah_screen.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/menu/navigation_bottom_menu.xml" value="2.0607142857142855" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/Car_Parts/app/src/main/res/menu/navigation_menu.xml" value="0.303125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

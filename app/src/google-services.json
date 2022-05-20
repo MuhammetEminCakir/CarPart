@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "103852863923",
+    "project_id": "carparts-fb93e",
+    "storage_bucket": "carparts-fb93e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103852863923:android:6fbf6849c519da00b09bc6",
+        "android_client_info": {
+          "package_name": "com.keremkulac.car_parts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103852863923-0i7p2thi2tsmkhs4e3ppa2hq4crp9qlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9DWB3PrbDY-IG14hTdcTbQi1dPzwyvPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103852863923-0i7p2thi2tsmkhs4e3ppa2hq4crp9qlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

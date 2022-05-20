@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_electricity"
+            android:title="Elektrik">
+            <menu>
+                <item android:id="@+id/nav_headlight"
+                    android:title="Farlar"/>
+                <item android:id="@+id/nav_fuse_box"
+                    android:title="Sigorta Kutuları"/>
+                <item android:id="@+id/nav_signal"
+                    android:title="Sinyaller"/>
+            </menu>
+        </item>
+
+        <item android:id="@+id/nav_filter"
+            android:title="Filtreler">
+            <menu>
+                <item android:id="@+id/nav_air_filter"
+                    android:title="Hava Filtresi"/>
+                <item android:id="@+id/nav_pollen_filter"
+                    android:title="Polen Filtresi"/>
+                <item android:id="@+id/nav_oil_filter"
+                    android:title="Yağ Filtresi"/>
+                <item android:id="@+id/nav_fuel_filter"
+                    android:title="Yakıt Filtresi"/>
+
+            </menu>
+        </item>
+
+        <item android:id="@+id/nav_brake"
+            android:title="Fren">
+            <menu>
+                <item android:id="@+id/nav_brake_lining"
+                    android:title="Fren Balatası"/>
+                <item android:id="@+id/nav_brake_disc"
+                    android:title="Fren Diski"/>
+                <item android:id="@+id/nav_abs_sensor"
+                    android:title="ABS Sensörü"/>
+            </menu>
+        </item>
+
+        <item android:id="@+id/nav_bodywork"
+            android:title="Kaporta">
+            <menu>
+                <item android:id="@+id/nav_door_handle"
+                    android:title="Kapı Kolu"/>
+                <item android:id="@+id/nav_bonnet"
+                    android:title="Kaput"/>
+                <item android:id="@+id/nav_buffer"
+                    android:title="Tampon"/>
+            </menu>
+        </item>
+
+        <item android:id="@+id/nav_engine"
+            android:title="Motor">
+            <menu>
+                <item android:id="@+id/nav_injector"
+                    android:title="Enjektör"/>
+                <item android:id="@+id/nav_radiator"
+                    android:title="Radyatör"/>
+                <item android:id="@+id/nav_timing_belt"
+                    android:title="Triger Kayışı"/>
+            </menu>
+        </item>
+    </group>
+</menu>
