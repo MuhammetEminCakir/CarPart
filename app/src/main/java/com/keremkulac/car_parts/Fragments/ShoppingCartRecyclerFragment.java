@@ -156,7 +156,7 @@ public class ShoppingCartRecyclerFragment extends Fragment {
                     HashMap<String,Object> orderHistory = new HashMap<>();
                     orderHistory.put("orderHistoryDate",formatter.format(date));
                     orderHistory.put("orderHistoryMail",firebaseUser.getEmail());
-                    orderHistory.put("orderHistoryTotalPrice",String.valueOf(totalPrice));
+                    orderHistory.put("orderHistoryTotalPrice",df.format(totalPrice));
                     orderHistory.put("orderHistoryID",tasksRef.getKey());
                     firebaseFirestore.collection("OrderHistory")
                             .add(orderHistory).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

@@ -69,8 +69,11 @@ public class OrderFragment extends Fragment {
         formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         date = new Date();
         total =  getArguments().getString("totalPrice");
+        System.out.println("total"+total);
     }
     public void getID(){
+        System.out.println("email"+firebaseUser.getEmail());
+
         firebaseFirestore.collection("OrderHistory")
                 .whereEqualTo("orderHistoryMail",firebaseUser.getEmail())
                 .whereEqualTo("orderHistoryTotalPrice",total)
@@ -82,6 +85,7 @@ public class OrderFragment extends Fragment {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                               id= document.getData().get("orderHistoryID").toString();
                             }
+                            System.out.println("ıd"+id);
                             getData(id);
                         }
                     }
