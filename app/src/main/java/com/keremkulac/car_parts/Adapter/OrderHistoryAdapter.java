@@ -67,12 +67,9 @@ public abstract class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHist
             recyclerOrderHistoryDetail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Bundle bundle = new Bundle();
-                    System.out.println("Deneme");
                     OrderFragment orderFragment = new OrderFragment();
                     setFragmentsBundle(orderFragment,bundle,R.id.frame_layout,totalPrice.getText().toString());
-                    //setFragments(orderFragment,R.id.frame_layout);
                 }
             });
 

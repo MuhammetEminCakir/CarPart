@@ -21,6 +21,8 @@ import com.keremkulac.car_parts.Categories.ShoppingCart;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FirebaseOperations {
     FirebaseFirestore firebaseFirestore;
@@ -28,28 +30,33 @@ public class FirebaseOperations {
     FirebaseAuth firebaseAuth;
     String currentBalance;
 
-    public String  getCurrentBalance(){
+    public String getCurrentBalance() {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firebaseFirestore.collection("User")
-                .whereEqualTo("userEmail",firebaseUser.getEmail())
+                .whereEqualTo("userEmail", firebaseUser.getEmail())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 currentBalance = document.getData().get("userBalance").toString().trim();
-                                System.out.println("currentBalance1"+currentBalance);
+                                System.out.println("currentBalance1" + currentBalance);
                             }
                         }
                     }
                 });
 
-        System.out.println("currentBalance2"+currentBalance);
+        System.out.println("currentBalance2" + currentBalance);
         return currentBalance;
     }
 
 
 }
+
+
+
+
+

@@ -27,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.keremkulac.car_parts.R;
 
 import java.util.HashMap;
+import java.util.Random;
 
 
 public class SignUpFragment extends Fragment {
@@ -81,13 +82,16 @@ public class SignUpFragment extends Fragment {
                 if(email.equals("") || password.equals("") || name.equals("") || lastname.equals("" ) || phoneNumber.equals("")){
                     Toast.makeText(getActivity(),"Lütfen bilgilerinizi giriniz",Toast.LENGTH_LONG).show();
                 }else{
+                    Random rand = new Random();
+                    int random1 = 100+rand.nextInt(900);
+                    int random2 = 100+rand.nextInt(900);
                     HashMap<String,Object> registerUser = new HashMap<>();
                     registerUser.put("userEmail",email);
                     registerUser.put("userName",name);
                     registerUser.put("userLastname",lastname);
                     registerUser.put("userPhoneNumber",phoneNumber);
                     registerUser.put("userBalance","0");
-
+                    registerUser.put("userID",random1+ " "+random2);
                     firebaseFirestore.collection("User")
                             .document(email)
                             .set(registerUser)

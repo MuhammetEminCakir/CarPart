@@ -57,7 +57,7 @@ public class ShoppingCartRecyclerFragment extends Fragment {
     float totalPrice =0;
     String currentBalance;
     DecimalFormat df ;
-
+    String userID;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shopping_cart_recycler, container, false);
@@ -84,36 +84,51 @@ public class ShoppingCartRecyclerFragment extends Fragment {
     }
 
     public void getData(){
-        DatabaseReference databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child("OrderTemp");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot data: snapshot.getChildren()){
-                    String name = data.child("OrderPartName").getValue(String.class);
-                    String code = data.child("OrderPartCode").getValue(String.class);
-                    String price = data.child("OrderPartPrice").getValue(String.class);
-                    String url = data.child("OrderPartUrl").getValue(String.class);
-                    String date = data.child("OrderPartDate").getValue(String.class);
-                    String email = data.child("OrderPartEmail").getValue(String.class);
-                    ShoppingCart shoppingCart = new ShoppingCart(name,code,price,url,email,date);
-                    shoppingCartArrayList.add(shoppingCart);
-                    String replacePrice = price;
-                    replacePrice = replacePrice.replace(",", ".");
-                    float f = Float.parseFloat(replacePrice);
-                    totalPrice = totalPrice+f;
-                    System.out.println("xxxxxx"+price);
-                }
-                shoppingCartAdapter.notifyDataSetChanged();
-                recyclerViewShoppingCartTotalPrice.setText(df.format(totalPrice)+" TL");
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+        firebaseFirestore.collection("User")
+                .whereEqualTo("userEmail",firebaseUser.getEmail())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
 
-            }
-        });
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                userID = document.getData().get("userID").toString();
+                            }
+                            DatabaseReference databaseReference = FirebaseDatabase
+                                    .getInstance()
+                                    .getReference()
+                                    .child(userID);
+                            databaseReference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for(DataSnapshot data: snapshot.getChildren()){
+                                        String name = data.child("OrderPartName").getValue(String.class);
+                                        String code = data.child("OrderPartCode").getValue(String.class);
+                                        String price = data.child("OrderPartPrice").getValue(String.class);
+                                        String url = data.child("OrderPartUrl").getValue(String.class);
+                                        String date = data.child("OrderPartDate").getValue(String.class);
+                                        String email = data.child("OrderPartEmail").getValue(String.class);
+                                        ShoppingCart shoppingCart = new ShoppingCart(name,code,price,url,email,date);
+                                        shoppingCartArrayList.add(shoppingCart);
+                                        String replacePrice = price;
+                                        replacePrice = replacePrice.replace(",", ".");
+                                        float f = Float.parseFloat(replacePrice);
+                                        totalPrice = totalPrice+f;
+                                        System.out.println("xxxxxx"+price);
+                                    }
+                                    shoppingCartAdapter.notifyDataSetChanged();
+                                    recyclerViewShoppingCartTotalPrice.setText(df.format(totalPrice)+" TL");
+                                }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    }
+                });
+
 
     }
 
@@ -183,21 +198,39 @@ public class ShoppingCartRecyclerFragment extends Fragment {
 
     }
     public void deleteTempDatabase(){
-        DatabaseReference databaseDelete = FirebaseDatabase.getInstance().getReference();
-        Query query = databaseDelete.child("OrderTemp")
-                .orderByChild("OrderPartEmail")
-                .equalTo(firebaseUser.getEmail());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot appleSnapshot: snapshot.getChildren()) {
-                    appleSnapshot.getRef().removeValue();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+        firebaseFirestore.collection("User")
+                .whereEqualTo("userEmail",firebaseUser.getEmail())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                userID = document.getData().get("userID").toString();
+                            }
+                            DatabaseReference databaseDelete = FirebaseDatabase.getInstance().getReference();
+                            Query query = databaseDelete.child(userID)
+                                    .orderByChild("OrderPartEmail")
+                                    .equalTo(firebaseUser.getEmail());
+                            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    for (DataSnapshot appleSnapshot: snapshot.getChildren()) {
+                                        appleSnapshot.getRef().removeValue();
+                                    }
+                                }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    }
+                });
+
+
+
     }
 }

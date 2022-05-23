@@ -12,12 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.keremkulac.car_parts.Categories.CarPart;
 import com.keremkulac.car_parts.Categories.ShoppingCart;
+import com.keremkulac.car_parts.FirebaseOperations;
 import com.keremkulac.car_parts.R;
 import com.squareup.picasso.Picasso;
 
@@ -31,6 +37,8 @@ public class CarPartAdapter extends RecyclerView.Adapter<CarPartAdapter.CarPartH
     private ArrayList<CarPart> carPartList;
     FirebaseAuth auth;
     FirebaseUser user;
+    FirebaseFirestore firestore;
+    String id;
     public ArrayList<ShoppingCart> shoppingCartArrayList;
     public CarPartAdapter(ArrayList<CarPart> carPartList) {
         this.carPartList = carPartList;
@@ -82,19 +90,34 @@ public class CarPartAdapter extends RecyclerView.Adapter<CarPartAdapter.CarPartH
                 public void onClick(View view) {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                     Date date = new Date();
-
                     auth = FirebaseAuth.getInstance();
                     user = auth.getCurrentUser();
-                    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-                    Map<String,Object> shoppingCart = new HashMap<>();
-                    shoppingCart.put("OrderPartName",carPart.getName());
-                    shoppingCart.put("OrderPartCode",carPart.getCode());
-                    shoppingCart.put("OrderPartPrice",carPart.getPrice());
-                    shoppingCart.put("OrderPartUrl",carPart.getDownloadUrl());
-                    shoppingCart.put("OrderPartEmail",user.getEmail());
-                    shoppingCart.put("OrderPartDate",formatter.format(date));
-                    DatabaseReference tasksRef = rootRef.child("OrderTemp").push();
-                    tasksRef.setValue(shoppingCart);
+                    firestore = FirebaseFirestore.getInstance();
+                    firestore.collection("User")
+                            .whereEqualTo("userEmail",user.getEmail())
+                            .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful()){
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    id= document.getData().get("userID").toString();
+                                }
+                                System.out.println("ıd"+id);
+                            }
+                            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+                            Map<String,Object> shoppingCart = new HashMap<>();
+                            shoppingCart.put("OrderPartName",carPart.getName());
+                            shoppingCart.put("OrderPartCode",carPart.getCode());
+                            shoppingCart.put("OrderPartPrice",carPart.getPrice());
+                            shoppingCart.put("OrderPartUrl",carPart.getDownloadUrl());
+                            shoppingCart.put("OrderPartEmail",user.getEmail());
+                            shoppingCart.put("OrderPartDate",formatter.format(date));
+                            DatabaseReference tasksRef = rootRef.child(id).push();
+                            tasksRef.setValue(shoppingCart);
+
+                        }
+                    });
+
                 }
             });
         }
